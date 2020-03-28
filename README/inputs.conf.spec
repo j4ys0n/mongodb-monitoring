@@ -3,6 +3,8 @@
 
 server = <value>
 port = <value>
+username = <value>
+password = <value>
 commands = <value>
 
 [mongo_db://<name>]
@@ -10,6 +12,8 @@ commands = <value>
 
 server = <value>
 port = <value>
+username = <value>
+password = <value>
 database = <value>
 commands = <value>
 
@@ -18,6 +22,8 @@ commands = <value>
 
 server = <value>
 port = <value>
+username = <value>
+password = <value>
 database = <value>
 collections = <value>
 
@@ -26,3 +32,5 @@ collections = <value>
 
 server = <value>
 port = <value>
+username = <value>
+password = <value>
