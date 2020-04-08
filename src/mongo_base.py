@@ -78,14 +78,18 @@ class MongoScript(Script):
             port = input_item["port"]
             user = input_item["username"]
             pswd = input_item["password"]
+            db = input_item["database"]
 
             if not port is None:
                 port = int(port)
 
+            if not db is None:
+                db = "admin"
+
             if not user is None and not pswd is None:
-                mongoURI = "mongodb://{username}:{password}@{host}:{port}".format(
+                mongoURI = "mongodb://{username}:{password}@{host}:{port}/{db}".format(
                     username = user, password = pswd,
-                    host = host, port = port
+                    host = host, port = port, db = db
                 )
                 client = pymongo.MongoClient(mongoURI)
                 self.stream_events_mongo(input_name, input_item, client, ew)

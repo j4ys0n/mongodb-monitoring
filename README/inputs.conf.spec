@@ -5,6 +5,7 @@ server = <value>
 port = <value>
 username = <value>
 password = <value>
+database = <value>
 commands = <value>
 
 [mongo_db://<name>]
@@ -34,3 +35,4 @@ server = <value>
 port = <value>
 username = <value>
 password = <value>
+database = <value>
