@@ -15,12 +15,15 @@ import splunklib
 class DistCommand(Command):
     """setup.py command to create .spl file for modular input"""
     description = "Build MongoDB Monitoring app tarball."
-    user_options = []
+    user_options = [
+        ('version=', None, 'specify the version')
+    ]
 
     def initialize_options(self):
-        pass
+        self.version = None
 
     def finalize_options(self):
+        # assert self.version is not None
         pass
 
     @staticmethod
@@ -40,7 +43,7 @@ class DistCommand(Command):
         if not os.path.exists("build"):
             os.makedirs("build")
 
-        with closing(tarfile.open(os.path.join("build", app + ".spl"), "w:gz")) as spl:
+        with closing(tarfile.open(os.path.join("build", app + ".tgz"), "w:gz")) as spl:
             spl.add(
                 "src",
                 arcname=os.path.join(app, "bin")
@@ -56,7 +59,7 @@ class DistCommand(Command):
             spl.add(
                 "static",
                 arcname=os.path.join(app, "static")
-            )            
+            )
             spl.add(
                 "README",
                 arcname=os.path.join(app, "README")
